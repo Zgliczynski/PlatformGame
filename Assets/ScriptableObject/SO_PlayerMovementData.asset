@@ -29,6 +29,7 @@ MonoBehaviour:
   jumpHeight: 3.5
   jumpTimeToApex: 0.3
   jumpForce: 23.333332
+  jumpAfterEnemyDie: 100
   jumpCutGravityMult: 2
   jumpHangTimeThreshold: 0
   jumpHangGravityMult: 0.5

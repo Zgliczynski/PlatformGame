@@ -26,6 +26,7 @@ public class PlayerMovementData : ScriptableObject
     public float jumpHeight;
     public float jumpTimeToApex; //Time between applying the jump force and reaching the desired jump height.
     [HideInInspector] public float jumpForce; //The actual force applied to the player jump.
+    public float jumpAfterEnemyDie;
 
     [Header("Both Jump")]
     public float jumpCutGravityMult; //Multiplier to increase gravity if button "jump" still down.

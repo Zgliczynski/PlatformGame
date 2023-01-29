@@ -16,6 +16,8 @@ public class EnemyController : MonoBehaviour
     [Header("Check")]
     [SerializeField] private Transform wallChackPoint;
     [SerializeField] private Vector2 wallCheckPointSize;
+    [SerializeField] private Transform playerCheck;
+    [SerializeField] private Vector2 playerCheckSize;
 
     //Layer
     [Header("Layer & Tags")]
@@ -89,9 +91,21 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        string tag = collision.gameObject.tag;
+        if (tag == "EnemyHeadCheck")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(wallChackPoint.position, wallCheckPointSize);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(playerCheck.position, playerCheckSize);
     }
 }

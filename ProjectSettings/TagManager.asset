@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Enemy
+  - MyPlayer
+  - EnemyCheckHead
+  - EnemyHeadCheck
+  - PlayerCheck
   layers:
   - Default
   - TransparentFX

@@ -30,7 +30,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
     [SerializeField] private Transform _frontWallCheckPoint;
     [SerializeField] private Transform _backWallCheckPoint;
-    [SerializeField] private Vector2 _wallCheckSize = new Vector2(0.5f, 1f);
+    [SerializeField] private Vector2 _wallCheckSize = new Vector2(0.41f, 0.262f);
+    [SerializeField] private Transform _enemyHeadCheck;
+    [SerializeField] private Vector2 _enemyHeadCheckSize = new Vector2(0f, 0f);
 
     //Layers & tags
     [Header("Layers & Tags")]
@@ -211,6 +213,7 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = scale;
     }
     #endregion
+    
     #region Run
     private void Run(float lerpAmount)
     {
@@ -245,6 +248,15 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
     }
     #endregion
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        string tag = collision.gameObject.tag;
+        if (tag == "PlayerCheck")
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Turn()
     {
@@ -347,6 +359,8 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(_frontWallCheckPoint.position, _wallCheckSize);
         Gizmos.DrawWireCube(_backWallCheckPoint.position, _wallCheckSize);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(_enemyHeadCheck.position, _enemyHeadCheckSize);
     }
     #endregion
 }
