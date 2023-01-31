@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
 
     //State
     public bool IsFacingRight { get; private set; }
+    public bool IsKill { get; private set; }
+
 
     //Check
     [Header("Check")]
@@ -42,6 +44,8 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        Kill(false);
+
         //Collision Check
         if (Physics2D.OverlapBox(wallChackPoint.position, wallCheckPointSize, 0, wallCheck) && IsFacingRight)
             directionX = -1;
@@ -91,14 +95,39 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    private void Kill(bool isKill)
+    {
+        isKill = IsKill;
+        
+        Quaternion deadStartPosition = transform.rotation;
+        Quaternion deadEndPosition = Quaternion.Euler(90, 0, 90);
+        float timer = Time.deltaTime;
+
+        if(isKill == true)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+            transform.rotation = Quaternion.Lerp(deadStartPosition, deadEndPosition, timer);
+            StartCoroutine(Die());
+        }
+        
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string tag = collision.gameObject.tag;
         if (tag == "EnemyHeadCheck")
         {
-            Destroy(gameObject);
+            IsKill = true;
         }
     }
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
+    }
+
 
     
     private void OnDrawGizmosSelected()

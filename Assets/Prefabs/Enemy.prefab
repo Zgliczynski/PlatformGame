@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0034151077, y: 0.02738899}
+  m_Offset: {x: 0.0003156662, y: -0.006191373}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8373108, y: 0.4265381}
+  m_Size: {x: 0.6358261, y: 0.35937738}
   m_EdgeRadius: 0
 --- !u!1 &1383508371501449202
 GameObject:

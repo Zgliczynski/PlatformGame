@@ -254,7 +254,7 @@ public class PlayerController : MonoBehaviour
         string tag = collision.gameObject.tag;
         if (tag == "PlayerCheck")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
