@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         IsFacingRight = true;
-        directionX = 1;
+        directionX = 1; //Checking direction on start game always right.
     }
 
     private void Update()
@@ -47,15 +47,18 @@ public class EnemyController : MonoBehaviour
         Kill(false);
 
         //Collision Check
+        //Checking collision with wall on right side.
         if (Physics2D.OverlapBox(wallChackPoint.position, wallCheckPointSize, 0, wallCheck) && IsFacingRight)
             directionX = -1;
 
+        //Checking collision with wall on left side.
         if (Physics2D.OverlapBox(wallChackPoint.position, wallCheckPointSize, 0, wallCheck) && !IsFacingRight)
             directionX = 1;
     }
 
     private void FixedUpdate()
     {
+        //Enemy move.
         rb.velocity = new Vector2(directionX * moveSpeed, rb.velocity.y);
     }
 
@@ -68,19 +71,7 @@ public class EnemyController : MonoBehaviour
     {
         Vector3 scale = transform.localScale;
 
-        if (rb.velocity.x > 0 && directionX == -1)
-        {
-            scale.x *= -1;
-            transform.localScale = scale;
-            directionX = -1;
-        }
-        else if(rb.velocity.x < 0 && directionX == 1)
-        {
-            scale.x *= 1;
-            transform.localScale = scale;
-            directionX = 1;
-        }
-        else if(rb.velocity.x == 0 && directionX == -1)
+        if(rb.velocity.x == 0 && directionX == -1)
         {
             scale.x *= -1;
             transform.localScale = scale;
@@ -92,13 +83,13 @@ public class EnemyController : MonoBehaviour
             transform.localScale = scale;
             directionX = -1;
         }
-
     }
 
     private void Kill(bool isKill)
     {
         isKill = IsKill;
         
+        //Rotation after dead.
         Quaternion deadStartPosition = transform.rotation;
         Quaternion deadEndPosition = Quaternion.Euler(90, 0, 90);
         float timer = Time.deltaTime;
