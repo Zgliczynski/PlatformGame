@@ -7,9 +7,9 @@ TagManager:
   - Wall
   - Enemy
   - MyPlayer
-  - EnemyCheckHead
   - EnemyHeadCheck
   - PlayerCheck
+  - DeadCheck
   layers:
   - Default
   - TransparentFX

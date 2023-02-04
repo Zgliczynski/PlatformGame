@@ -13,7 +13,6 @@ public class EnemyController : MonoBehaviour
     public bool IsFacingRight { get; private set; }
     public bool IsKill { get; private set; }
 
-
     //Check
     [Header("Check")]
     [SerializeField] private Transform wallChackPoint;
@@ -45,7 +44,7 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         Kill(false);
-
+         
         //Collision Check
         //Checking collision with wall on right side.
         if (Physics2D.OverlapBox(wallChackPoint.position, wallCheckPointSize, 0, wallCheck) && IsFacingRight)
@@ -85,23 +84,21 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void Kill(bool isKill)
+    public void Kill(bool isKill)
     {
         isKill = IsKill;
-        
+
         //Rotation after dead.
         Quaternion deadStartPosition = transform.rotation;
         Quaternion deadEndPosition = Quaternion.Euler(90, 0, 90);
         float timer = Time.deltaTime;
 
-        if(isKill == true)
+        if (isKill == true)
         {
             GetComponent<BoxCollider2D>().enabled = false;
             transform.rotation = Quaternion.Lerp(deadStartPosition, deadEndPosition, timer);
             StartCoroutine(Die());
         }
-        
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -119,8 +116,6 @@ public class EnemyController : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;

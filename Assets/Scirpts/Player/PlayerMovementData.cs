@@ -47,6 +47,9 @@ public class PlayerMovementData : ScriptableObject
     public float slideSpeed;
     public float slideAccel;
 
+    [Header("Health")]
+    public int playerHealth;
+
     [Header("Assists System")]
     [Range(0.01f, 0.5f)] public float coyoteTime; //When you falling off the platform, can still jump.
     [Range(0.01f, 0.5f)] public float jumpInputBufferTime; //Can faster jump if you sill in air.

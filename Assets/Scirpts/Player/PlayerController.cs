@@ -194,6 +194,15 @@ public class PlayerController : MonoBehaviour
             Slide();
     }
 
+    #region Damage
+
+    private void TakeDamage()
+    {
+        Data.playerHealth--;
+    }
+
+    #endregion
+
     #region Input Callback
     public void OnJumpInput()
     {
@@ -254,7 +263,7 @@ public class PlayerController : MonoBehaviour
         string tag = collision.gameObject.tag;
         if (tag == "PlayerCheck")
         {
-            //Destroy(gameObject);
+            TakeDamage();
         }
     }
 
