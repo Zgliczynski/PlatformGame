@@ -10,6 +10,8 @@ TagManager:
   - EnemyHeadCheck
   - PlayerCheck
   - DeadCheck
+  - PlayerBuffJump
+  - AddHearts
   layers:
   - Default
   - TransparentFX

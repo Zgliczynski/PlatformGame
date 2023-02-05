@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public PlayerMovementData Data;
+    public Health _health;
     #region Parameters, State & Components
     //Components
     private Rigidbody2D rb;
@@ -45,12 +46,14 @@ public class PlayerController : MonoBehaviour
     //Wall Jump Parameters
     private float wallJumpStartTime;
     private int lastWallDirectionJump;
+
     #endregion
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();
+        _health = GetComponent<Health>();
     }
 
     private void Start()
@@ -198,6 +201,7 @@ public class PlayerController : MonoBehaviour
 
     private void TakeDamage()
     {
+        Data.playerHealth = _health.health;
         Data.playerHealth--;
     }
 
@@ -264,6 +268,12 @@ public class PlayerController : MonoBehaviour
         if (tag == "PlayerCheck")
         {
             TakeDamage();
+            _health.HeartController();
+        }
+
+        if(tag == "PlayerBuffJump")
+        {
+            rb.AddForce(transform.up * Data.jumpAfterEnemyDie, ForceMode2D.Impulse);
         }
     }
 

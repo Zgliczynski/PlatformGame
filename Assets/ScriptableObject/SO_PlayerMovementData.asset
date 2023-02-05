@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fc86c79c5f6864fb0d718e41e7fd3b, type: 3}
   m_Name: SO_PlayerMovementData
   m_EditorClassIdentifier: 
-  runMaxSpeed: 20
-  runAcceleration: 20
+  runMaxSpeed: 15
+  runAcceleration: 15
   runAccelAmount: 50
   runDecceleration: 2
-  runDeccelAmount: 5
-  accelInAir: 0.57
-  deccelInAir: 0.01
+  runDeccelAmount: 6.6666665
+  accelInAir: 1
+  deccelInAir: 1
   doConserveMomentum: 1
   gravityStrength: -77.77777
   gravityScale: 7.9284167
@@ -29,7 +29,7 @@ MonoBehaviour:
   jumpHeight: 3.5
   jumpTimeToApex: 0.3
   jumpForce: 23.333332
-  jumpAfterEnemyDie: 100
+  jumpAfterEnemyDie: 7
   jumpCutGravityMult: 2
   jumpHangTimeThreshold: 0
   jumpHangGravityMult: 0.5
@@ -41,6 +41,6 @@ MonoBehaviour:
   doTurnOnWallJump: 1
   slideSpeed: -15
   slideAccel: 3
-  playerHealth: -99
+  playerHealth: 3
   coyoteTime: 0.2
   jumpInputBufferTime: 0.2

@@ -120,7 +120,7 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(wallChackPoint.position, wallCheckPointSize);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(playerCheck.position, playerCheckSize);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireCube(playerCheck.position, playerCheckSize);
     }
 }

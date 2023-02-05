@@ -45,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026618004, y: -0.055814505}
+  m_Offset: {x: -0.0016293526, y: -0.09048349}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6584358, y: 0.2769475}
+  m_Size: {x: 0.874156, y: 0.20760953}
   m_EdgeRadius: 0
 --- !u!114 &1778593935363997793
 MonoBehaviour:
@@ -267,8 +267,8 @@ GameObject:
   - component: {fileID: 1949539257938076632}
   - component: {fileID: 3425809179880702368}
   m_Layer: 0
-  m_Name: DeadCheck
-  m_TagString: DeadCheck
+  m_Name: PlayerBuffJump
+  m_TagString: PlayerBuffJump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,7 +300,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0000009536743, y: 0.02598226}
+  m_Offset: {x: -0.0025687218, y: 0.03882259}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -311,5 +311,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.903492, y: 0.13144827}
+  m_Size: {x: 0.67750263, y: 0.044133782}
   m_EdgeRadius: 0
