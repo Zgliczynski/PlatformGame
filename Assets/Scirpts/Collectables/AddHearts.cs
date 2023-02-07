@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AddHearts : MonoBehaviour
 {
-    private Health health;
     public PlayerMovementData Data;
     private CircleCollider2D circleCollider2D;
     private Rigidbody2D rb;
@@ -12,7 +11,7 @@ public class AddHearts : MonoBehaviour
 
     private void Awake()
     {
-        health = GetComponent<Health>();
+
         circleCollider2D = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -26,10 +25,19 @@ public class AddHearts : MonoBehaviour
     {
         string tag = collision.gameObject.tag;
 
-        if(tag == "AddHearts")
+        HeartsUIController _health = collision.GetComponent<HeartsUIController>();
+        if (tag == "MyPlayer" && _health.numberOfHealth == Data.playerHealth)
         {
-            health.AddHeart();
+            _health.numberOfHealth++;
             Destroy(gameObject);
+            Debug.Log("first");
+        }
+        else if (tag == "MyPlayer" && _health.numberOfHealth > Data.playerHealth)
+        {
+            Data.playerHealth++;
+            Destroy(gameObject);
+            Debug.Log("secend");
         }
     }
 }
+               
