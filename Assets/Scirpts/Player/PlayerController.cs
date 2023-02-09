@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     #region Parameters, State & Components
     //Components
     private Rigidbody2D rb;
-    private PolygonCollider2D polygonCollider2D;
+    private BoxCollider2D boxCollider;
 
     //State parameters
     public bool IsFacingRight { get; private set; }
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        polygonCollider2D = GetComponent<PolygonCollider2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
 
     }
 
@@ -203,6 +203,16 @@ public class PlayerController : MonoBehaviour
         Data.playerHealth--;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        string name = collision.gameObject.name;
+        if(name == "Enemy")
+        {
+            TakeDamage();
+        }
+
+    }
+
     #endregion
 
     #region Input Callback
@@ -263,11 +273,6 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string tag = collision.gameObject.tag;
-        if (tag == "PlayerCheck")
-        {
-            TakeDamage();
-        }
-
         if(tag == "PlayerBuffJump")
         {
             rb.AddForce(transform.up * Data.jumpAfterEnemyDie, ForceMode2D.Impulse);

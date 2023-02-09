@@ -56,9 +56,9 @@
     <Compile Include="Assets\Scirpts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scirpts\Enemy\EnemyDead.cs" />
     <Compile Include="Assets\Scirpts\Enemy\EnemyController.cs" />
+    <Compile Include="Assets\Scirpts\UI\HeartsUIController.cs" />
     <Compile Include="Assets\Scirpts\Collectables\AddHearts.cs" />
     <Compile Include="Assets\Scirpts\Player\PlayerMovementData.cs" />
-    <Compile Include="Assets\Scirpts\UI\HeartsUIController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

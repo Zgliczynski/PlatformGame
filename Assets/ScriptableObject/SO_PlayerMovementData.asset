@@ -20,15 +20,15 @@ MonoBehaviour:
   accelInAir: 1
   deccelInAir: 1
   doConserveMomentum: 1
-  gravityStrength: -77.77777
-  gravityScale: 7.9284167
+  gravityStrength: -66.666664
+  gravityScale: 6.795786
   fallGravityMult: 2
   maxFallSpeed: 20
   fastFallGravityMult: 2
   maxFastFallSpeed: 20
-  jumpHeight: 3.5
+  jumpHeight: 3
   jumpTimeToApex: 0.3
-  jumpForce: 23.333332
+  jumpForce: 20
   jumpAfterEnemyDie: 7
   jumpCutGravityMult: 2
   jumpHangTimeThreshold: 0
