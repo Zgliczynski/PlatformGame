@@ -22588,11 +22588,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1383508371349908699, guid: b8d9c609f2fa3394aa11d47928840a6c, type: 3}
       propertyPath: m_Size.x
-      value: 0.82197666
+      value: 0.8682947
       objectReference: {fileID: 0}
     - target: {fileID: 1383508371349908699, guid: b8d9c609f2fa3394aa11d47928840a6c, type: 3}
       propertyPath: m_Offset.x
-      value: -0.023196697
+      value: -0.000037670135
       objectReference: {fileID: 0}
     - target: {fileID: 1383508372817053979, guid: b8d9c609f2fa3394aa11d47928840a6c, type: 3}
       propertyPath: moveSpeed
@@ -53840,6 +53840,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5566614538120068728, guid: 72baeefb7d83b5f4d9fa7891e23979e2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5566614538120068730, guid: 72baeefb7d83b5f4d9fa7891e23979e2, type: 3}
       propertyPath: m_RootOrder
       value: 2

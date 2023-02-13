@@ -203,14 +203,19 @@ public class PlayerController : MonoBehaviour
         Data.playerHealth--;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        string name = collision.gameObject.name;
-        if(name == "Enemy")
+        string tag = other.gameObject.tag;
+        if(tag == "PlayerCheck")
         {
             TakeDamage();
         }
 
+        if (tag == "PlayerBuffJump")
+        {
+            rb.AddForce(transform.up * Data.jumpAfterEnemyDie, ForceMode2D.Impulse);
+        }
     }
 
     #endregion
@@ -269,15 +274,6 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
     }
     #endregion
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        string tag = collision.gameObject.tag;
-        if(tag == "PlayerBuffJump")
-        {
-            rb.AddForce(transform.up * Data.jumpAfterEnemyDie, ForceMode2D.Impulse);
-        }
-    }
 
     private void Turn()
     {
