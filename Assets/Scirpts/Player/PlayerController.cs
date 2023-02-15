@@ -210,6 +210,8 @@ public class PlayerController : MonoBehaviour
         if(tag == "PlayerCheck")
         {
             TakeDamage();
+            rb.AddForce(transform.right * Data.jumpAfterEnemyDie, ForceMode2D.Impulse);
+            Debug.Log("Damage");
         }
 
         if (tag == "PlayerBuffJump")
