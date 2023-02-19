@@ -41,6 +41,6 @@ MonoBehaviour:
   doTurnOnWallJump: 1
   slideSpeed: -15
   slideAccel: 3
-  playerHealth: -3
+  playerHealth: 5
   coyoteTime: 0.2
   jumpInputBufferTime: 0.2

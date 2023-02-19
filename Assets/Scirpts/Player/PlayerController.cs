@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool IsJumping { get; private set; }
     public bool IsSliding { get; private set; }
     public bool IsWallJumping { get; private set; }
+    public bool IsDead { get; private set; }
     public float LastOnGroundTime { get; private set; }
     public float LastOnWallTime { get; private set; }
     public float LastOnWallRightTime { get; private set; }
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour
 
     //Input parameters
     private Vector2 moveInput;
+
+    //Spawn point
+    [Header("Spawn Point")]
+    [SerializeField] private Transform spawnPoint;
 
     //Check parameters
     [Header("Check")]
@@ -58,7 +63,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         IsFacingRight = true;
+        IsDead = false;
         SetGravityScale(Data.gravityScale);
+        Data.playerHealth = 3;
     }
 
     private void Update()
@@ -181,6 +188,8 @@ public class PlayerController : MonoBehaviour
             SetGravityScale(Data.gravityScale); //Default gravity
         }
         #endregion
+
+        Dead();
     }
 
     private void FixedUpdate()
@@ -198,18 +207,12 @@ public class PlayerController : MonoBehaviour
 
     #region Damage
 
-    private void TakeDamage()
-    {
-        Data.playerHealth--;
-    }
-
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        string tag = other.gameObject.tag;
+        string tag = other.gameObject.name;
         if(tag == "PlayerCheck")
         {
-            TakeDamage();
+            Data.playerHealth--;
             rb.AddForce(transform.right * Data.jumpAfterEnemyDie, ForceMode2D.Impulse);
             Debug.Log("Damage");
         }
@@ -220,7 +223,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Dead()
+    {
+        if(Data.playerHealth <= 0)
+        {
+            PlayerSpawnAfterDie();
+            IsDead = true;
+        }
+    }
+
     #endregion
+
+    private void PlayerSpawnAfterDie()
+    {
+        if (IsDead)
+        {
+            transform.position = spawnPoint.position;
+            Data.playerHealth = 3;
+            IsDead = false;
+        }
+    }
 
     #region Input Callback
     public void OnJumpInput()
